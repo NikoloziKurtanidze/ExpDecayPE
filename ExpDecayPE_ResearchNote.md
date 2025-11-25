@@ -54,7 +54,9 @@ Sequence: ["I", "love", "Dara"]
 
 • a = 0.5, b = 3, c = 1, V = [1,2] 
 
-p = 0 → PE(0) = π^-(0.5*3*0) * 1 * [1,2] = [1,2] p = 1 → PE(1) = π^-(0.5*3*1) * 1 * [1,2] ≈ [0.18, 0.36] p = 2 → PE(2) = π^-(0.5*3*2) * 1 * [1,2] ≈ [0.032, 0.064] 
+p = 0 → PE(0) = π^-(0.5*3*0) * 1 * [1,2] = [1,2]
+p = 1 → PE(1) = π^-(0.5*3*1) * 1 * [1,2] ≈ [0.18, 0.36] 
+p = 2 → PE(2) = π^-(0.5*3*2) * 1 * [1,2] ≈ [0.032, 0.064] 
 
 Recent tokens dominate, older tokens fade smoothly. 
 
@@ -68,7 +70,14 @@ Token Position: 0 1 2 Weight: █████ █ ░
 
 Python Example 
 
-import math import numpy as np def exp_decay_pe(p, a, b, c, V): decay = math.pi ** (-a * b * p) return decay * c * np.array(V) V = [1, 2] PE0 = exp_decay_pe(0, 0.5, 3, 1, V) PE1 = exp_decay_pe(1, 0.5, 3, 1, V) PE2 = exp_decay_pe(2, 0.5, 3, 1, V) print(PE0, PE1, PE2) 
+import math import numpy as np
+def exp_decay_pe(p, a, b, c, V):
+  decay = math.pi ** (-a * b * p) 
+  return    decay * c * np.array(V)
+V = [1, 2] 
+PE0 = exp_decay_pe(0, 0.5, 3, 1, V)
+PE1 = exp_decay_pe(1, 0.5, 3, 1, V) 
+PE2 = exp_decay_pe(2, 0.5, 3, 1, V) print(PE0, PE1, PE2) 
 
 Why ExpDecayPE is Useful 
 
